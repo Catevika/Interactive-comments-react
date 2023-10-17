@@ -1,0 +1,15 @@
+.counter-icon-container {
+  height: 30px;
+}
+
+.counter-icon path {
+  fill: var(--light-grayish-blue);
+}
+
+.counter-icon-container:hover .counter-icon path {
+  fill: var(--moderate-blue);
+}
+
+.comment-counter span {
+  padding-bottom: 0.3rem;
+}

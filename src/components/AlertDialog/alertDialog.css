@@ -1,0 +1,35 @@
+.button-no,
+.button-yes {
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-stretch: condensed;
+  padding: 12px 10px;
+  margin: 1rem;
+  border-radius: 8px;
+}
+
+@media(max-width: 410px) {
+
+  .button-no,
+  .button-yes {
+    font-size: 1rem;
+  }
+}
+
+.button-no {
+  background-color: var(--grayish-blue);
+  width: 50%;
+}
+
+.button-no:hover {
+  background-color: var(--light-grayish-blue);
+}
+
+.button-yes {
+  background-color: var(--soft-red);
+  width: 50%;
+}
+
+.button-yes:hover {
+  background-color: var(--pale-red);
+}
