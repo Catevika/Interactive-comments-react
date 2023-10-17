@@ -2,7 +2,7 @@
   "name": "interactive-comments-react",
   "private": true,
   "version": "0.0.0",
-  "description": "mongodb backend for comments",
+  "description": "mongodb frontend for comments",
   "type": "module",
   "scripts": {
     "dev": "vite --host",
