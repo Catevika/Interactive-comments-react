@@ -4,6 +4,9 @@
   "version": "0.0.0",
   "description": "mongodb frontend for comments",
   "type": "module",
+  "engines": {
+    "node": ">=18.18.0 <19.0.0"
+  },
   "scripts": {
     "dev": "vite --host",
     "build": "tsc & vite build",
