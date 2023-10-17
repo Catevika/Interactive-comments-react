@@ -3,13 +3,14 @@ import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [ react() ],
   server: {
     proxy: {
       '/api': {
-        target: 'http://192.168.1.13:5000',
-        changeOrigin: true,
+        target: 'https://interactive-comments-api.onrender.com',
+        changeOrigin: true
       }
-    }
+    },
+    open: true
   }
 });
