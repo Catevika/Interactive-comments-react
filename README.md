@@ -1,10 +1,12 @@
-# Frontend Mentor - Interactive comments section solution
+# Frontend Mentor - Interactive comments section solution - CLIENT
+
+See [interactive comments SERVER](https://github.com/Catevika/interactive-comments-backend)
 
 This is a solution to the [Interactive comments section challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-comments-section-iG1RugEG9). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
-- [Frontend Mentor - Interactive comments section solution](#frontend-mentor---interactive-comments-section-solution)
+- [Frontend Mentor - Interactive comments section solution - CLIENT](#frontend-mentor---interactive-comments-section-solution---client)
   - [Table of contents](#table-of-contents)
   - [Overview](#overview)
     - [The challenge](#the-challenge)
