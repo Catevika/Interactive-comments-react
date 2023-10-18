@@ -20,7 +20,7 @@ function providesList<R extends { _id?: Types.ObjectId; }[], T extends string>(
 export const apiSlice = createApi({
   reducerPath: 'api',
   tagTypes: [ 'Comments', 'Replies' ],
-  baseQuery: fetchBaseQuery({ baseUrl: '/api' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://interactive-comments-api.onrender.com/api' }),
   endpoints: builder => ({
     getComments: builder.query<CommentsResponse, void>({
       query: () => '/',
