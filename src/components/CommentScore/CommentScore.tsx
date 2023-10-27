@@ -39,7 +39,7 @@ const CommentScore = ({ _id, updatedAt, score }: Props) => {
             fill="#C5C6EF" />
         </svg>
       </div>
-      <span>{score}</span>
+      <div>{score}</div>
       <div className='counter-icon-container' onClick={decrementScore}>
         <svg className="counter-icon" width="11" height="3" xmlns="http://www.w3.org/2000/svg">
           <path

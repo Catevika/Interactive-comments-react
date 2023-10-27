@@ -15,14 +15,14 @@ const Home = () => {
   const sortedComments = comments.slice().sort((a: any, b: any) => b.score - a.score);
 
   return (
-    <>
+    <main>
       <div className='interactive-comments-container'>
         {sortedComments.map((comment) =>
           comment._id ? <CommentCard key={comment._id?.toString()} commentId={comment._id} /> : <div>No comment yet.</div>
         )}
       </div>
       <NewCommentForm />
-    </>
+    </main>
   );
 };
 

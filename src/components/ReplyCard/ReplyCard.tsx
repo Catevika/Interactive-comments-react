@@ -69,7 +69,7 @@ const ReplyCard = ({ commentId, replyId }: Props) => {
         <div className="comment-sub-container">
           <div className="comment-name-container">
             <div className="comment-name-group">
-              <img srcSet={(user.image.png, user.image.webp)} sizes='(max-width: 64px) 24px, 24px' src={user.image.webp} alt={`${user.username} Avatar`} className='avatar' />
+              <img srcSet={(user.image.png + ' 1440w', user.image.webp + ' 815w')} sizes='(max-width: 1440px) 815px' src={user.image.png} alt={user.username + 'Avatar'} className='avatar' />
               <p className="comment-name">{user.username}</p>
               {user.username === "juliusomo" ? <p className="reply-name-you">you</p> : null}
               <p className="comment-created">{updatedAt ? moment(updatedAt).fromNow() : moment(createdAt).fromNow()}</p>
