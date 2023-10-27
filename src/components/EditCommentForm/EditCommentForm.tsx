@@ -9,7 +9,7 @@ type Props = {
   setEdit: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const EditCommentForm = ({ _id, content, updatedAt, setEdit }: Props) => {
+const EditCommentForm = ({ _id, content, setEdit }: Props) => {
   const [ text, setText ] = useState(content);
   const [ editComment ] = useEditCommentMutation();
 
@@ -30,7 +30,8 @@ const EditCommentForm = ({ _id, content, updatedAt, setEdit }: Props) => {
   };
 
   return (
-    <form className="new-comment-container" onSubmit={handleSubmit}>
+    <form className="new-comment-container update" onSubmit={handleSubmit}>
+      <label htmlFor='contentId'></label>
       <textarea id='contentId' name="content" value={text} onChange={handleChange}></textarea>
       <button type="submit" className="send-button">
         Update

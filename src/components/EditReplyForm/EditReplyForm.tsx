@@ -32,7 +32,8 @@ const EditReplyForm = ({ comment, _id, updatedAt, content, setEdit }: Props) => 
   };
 
   return (
-    <form className="new-comment-container" onSubmit={handleSubmit}>
+    <form className="new-comment-container reply" onSubmit={handleSubmit}>
+      <label htmlFor='contentId'></label>
       <textarea id='contentId' name="content" value={text} onChange={handleChange}></textarea>
       <button type="submit" className="send-button">
         Update

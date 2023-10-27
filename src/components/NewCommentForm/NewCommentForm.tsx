@@ -28,7 +28,7 @@ const NewCommentForm = () => {
   return (
     <div className='new-comment' >
       <form className="new-comment-container" onSubmit={handleSubmit}>
-        <img srcSet={(currentUser.image.png, currentUser.image.webp)} sizes='(max-width: 64px) 48px, 48px' src={currentUser.image.webp} alt={currentUser.username + 'Avatar'} className='avatar' />
+        <img srcSet={(currentUser.image.png + ' 1440w', currentUser.image.webp + ' 815w')} sizes='(max-width: 1440px) 815px' src={currentUser.image.png} alt={currentUser.username + 'Avatar'} className='avatar' />
         <label htmlFor='newContentId'></label>
         <textarea id='newContentId' name="newContent" value={newContent} placeholder="Add a comment..." onChange={(e) => setNewContent(e.target.value)}></textarea>
         <button type="submit" className="send-button" disabled={!newContent}>

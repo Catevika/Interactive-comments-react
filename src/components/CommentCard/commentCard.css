@@ -95,6 +95,7 @@
 .reply-btn-you {
   font-weight: 500;
   background-color: transparent;
+  width: 80px;
 }
 
 .reply-btn-reply,
@@ -127,7 +128,7 @@
   fill: var(--light-grayish-blue);
 }
 
-@media(max-width: 768px) {
+@media(max-width: 815px) {
   .comment-container {
     flex-direction: column;
     padding: 1rem;
