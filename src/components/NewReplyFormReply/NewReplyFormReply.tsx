@@ -1,10 +1,9 @@
-import type { Types } from 'mongoose';
 import { useState } from 'react';
 import { useAddReplyMutation, useReplyUpdateShowReplyFormMutation } from '../../features/api/api.slice';
 
 type Props = {
-  comment: Types.ObjectId | undefined;
-  _id: Types.ObjectId | undefined;
+  comment: string | undefined;
+  _id: string | undefined;
   showReplyForm: boolean;
 };
 
@@ -21,18 +20,18 @@ const NewReplyFormReply = ({ comment, _id, showReplyForm }: Props) => {
     return <p>No Reply to update!</p>;
   }
 
-  const [ addReply ] = useAddReplyMutation();
+  const [addReply] = useAddReplyMutation();
 
-  const [ newContent, setNewContent ] = useState('');
-  const [ errorDisplay, setErrorDisplay ] = useState('');
+  const [newContent, setNewContent] = useState('');
+  const [errorDisplay, setErrorDisplay] = useState('');
 
-  const [ replyUpdateShowreplyForm ] = useReplyUpdateShowReplyFormMutation();
+  const [replyUpdateShowreplyForm] = useReplyUpdateShowReplyFormMutation();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
       if (newContent.includes('@')) {
-        const addedReply = await addReply([ comment, newContent ]).unwrap();
+        const addedReply = await addReply([comment, newContent]).unwrap();
         console.log('fulfilled', addedReply);
         setNewContent('');
         const replyUpdatedShowreplyForm = await replyUpdateShowreplyForm({ comment, _id, showReplyForm: !showReplyForm }).unwrap();

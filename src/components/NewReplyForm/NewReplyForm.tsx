@@ -1,9 +1,8 @@
-import type { Types } from 'mongoose';
 import { useState } from 'react';
 import Spinner from '../Spinner/Spinner';
 import { useAddReplyMutation, useGetCommentQuery, useUpdateShowReplyFormMutation } from '../../features/api/api.slice';
 
-const NewReplyForm = ({ commentId }: { commentId: Types.ObjectId | undefined; }) => {
+const NewReplyForm = ({ commentId }: { commentId: string | undefined; }) => {
   const currentUser = {
     image: {
       png: "../../assets/avatars/image-juliusomo.png",
@@ -12,10 +11,10 @@ const NewReplyForm = ({ commentId }: { commentId: Types.ObjectId | undefined; })
     username: "juliusomo"
   };
 
-  const [ addReply ] = useAddReplyMutation();
+  const [addReply] = useAddReplyMutation();
 
-  const [ newContent, setNewContent ] = useState('');
-  const [ errorDisplay, setErrorDisplay ] = useState('');
+  const [newContent, setNewContent] = useState('');
+  const [errorDisplay, setErrorDisplay] = useState('');
 
   if (!commentId) {
     return 'No comment to reply to';
@@ -38,13 +37,13 @@ const NewReplyForm = ({ commentId }: { commentId: Types.ObjectId | undefined; })
     return <p>No comment to update!</p>;
   }
 
-  const [ updateShowreplyForm ] = useUpdateShowReplyFormMutation();
+  const [updateShowreplyForm] = useUpdateShowReplyFormMutation();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
       if (newContent.includes('@')) {
-        const addedReply = await addReply([ _id, newContent ]).unwrap();
+        const addedReply = await addReply([_id, newContent]).unwrap();
         console.log('fulfilled', addedReply);
         setNewContent('');
         const updateShowReplyForm = await updateShowreplyForm({ _id: addedReply.comment, showReplyForm: !showReplyForm }).unwrap();

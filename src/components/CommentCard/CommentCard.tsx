@@ -1,4 +1,3 @@
-import type { Types } from 'mongoose';
 import type { Reply } from '../../app/types';
 import { useState } from 'react';
 import moment from 'moment';
@@ -26,15 +25,15 @@ updateLocale('en', {
 });
 
 
-const CommentCard = ({ commentId }: { commentId: Types.ObjectId; }) => {
+const CommentCard = ({ commentId }: { commentId: string; }) => {
   if (!commentId) return <p>No comment yet!</p>;
   const { data: comment, isLoading, isError, error } = useGetCommentQuery(commentId);
 
-  const [ edit, setEdit ] = useState<boolean>(false);
-  const [ open, setOpen ] = useState(false);
+  const [edit, setEdit] = useState<boolean>(false);
+  const [open, setOpen] = useState(false);
 
-  const [ updateShowreplyForm ] = useUpdateShowReplyFormMutation();
-  const [ deleteComment ] = useDeleteCommentMutation();
+  const [updateShowreplyForm] = useUpdateShowReplyFormMutation();
+  const [deleteComment] = useDeleteCommentMutation();
 
   if (isLoading) {
     return <Spinner />;

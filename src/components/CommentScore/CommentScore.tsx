@@ -1,15 +1,14 @@
-import type { Types } from 'mongoose';
 import { useUpdateCommentMutation } from '../../features/api/api.slice';
 import './commentScore.css';
 
 type Props = {
-  _id: Types.ObjectId | undefined;
+  _id: string | undefined;
   updatedAt: Date | undefined;
   score: number;
 };
 
 const CommentScore = ({ _id, updatedAt, score }: Props) => {
-  const [ updateComment ] = useUpdateCommentMutation();
+  const [updateComment] = useUpdateCommentMutation();
 
   const incrementScore = async () => {
     try {

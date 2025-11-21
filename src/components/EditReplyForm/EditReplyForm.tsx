@@ -1,18 +1,17 @@
-import type { Types } from 'mongoose';
 import { useState } from 'react';
 import { useEditReplyMutation } from '../../features/api/api.slice';
 
 type Props = {
-  comment: Types.ObjectId | undefined;
-  _id: Types.ObjectId | undefined;
+  comment: string | undefined;
+  _id: string | undefined;
   updatedAt: Date | undefined;
   content: string;
   setEdit: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const EditReplyForm = ({ comment, _id, updatedAt, content, setEdit }: Props) => {
-  const [ text, setText ] = useState(content);
-  const [ editReply ] = useEditReplyMutation();
+  const [text, setText] = useState(content);
+  const [editReply] = useEditReplyMutation();
 
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>,

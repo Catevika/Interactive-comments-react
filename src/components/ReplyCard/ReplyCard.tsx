@@ -1,4 +1,3 @@
-import type { Types } from 'mongoose';
 import { useState } from 'react';
 import moment from 'moment';
 import Spinner from '../Spinner/Spinner';
@@ -9,19 +8,19 @@ import ReplyScore from '../ReplyScore/ReplyScore';
 import { useGetReplyQuery, useReplyUpdateShowReplyFormMutation, useDeleteReplyMutation } from '../../features/api/api.slice';
 
 type Props = {
-  commentId: Types.ObjectId | undefined;
-  replyId: Types.ObjectId | undefined;
+  commentId: string | undefined;
+  replyId: string | undefined;
 };
 
 const ReplyCard = ({ commentId, replyId }: Props) => {
   if (!commentId || !replyId) return <p>No reply yet!</p>;
-  const { data: reply, isLoading, isError, error } = useGetReplyQuery([ commentId, replyId ]);
+  const { data: reply, isLoading, isError, error } = useGetReplyQuery([commentId, replyId]);
 
-  const [ edit, setEdit ] = useState<boolean>(false);
-  const [ open, setOpen ] = useState(false);
+  const [edit, setEdit] = useState<boolean>(false);
+  const [open, setOpen] = useState(false);
 
-  const [ replyUpdateShowreplyForm ] = useReplyUpdateShowReplyFormMutation();
-  const [ deleteReply ] = useDeleteReplyMutation();
+  const [replyUpdateShowreplyForm] = useReplyUpdateShowReplyFormMutation();
+  const [deleteReply] = useDeleteReplyMutation();
 
 
   if (isLoading) {
@@ -53,7 +52,7 @@ const ReplyCard = ({ commentId, replyId }: Props) => {
 
   const handleDelete = async () => {
     try {
-      await deleteReply([ comment, _id ]).unwrap();
+      await deleteReply([comment, _id]).unwrap();
       console.log(`fulfilled! Reply deleted successfully`);
     } catch (error) {
       console.error('rejected', error);

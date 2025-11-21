@@ -1,8 +1,6 @@
-import type { Types } from 'mongoose';
-
 export type Reply = {
-  _id?: Types.ObjectId | undefined;
-  comment: Types.ObjectId | undefined;
+  _id?: string | undefined;
+  comment: string | undefined;
   content: string;
   createdAt: Date | undefined;
   updatedAt: Date | undefined;
@@ -19,7 +17,7 @@ export type Reply = {
 };
 
 export type Comment = {
-  _id?: Types.ObjectId | undefined;
+  _id?: string | undefined;
   content: string;
   createdAt: Date | undefined;
   updatedAt: Date | undefined;

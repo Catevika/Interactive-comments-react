@@ -1,15 +1,14 @@
-import type { Types } from 'mongoose';
 import { useUpdateReplyMutation } from '../../features/api/api.slice';
 
 type Props = {
-  comment: Types.ObjectId | undefined;
-  _id: Types.ObjectId | undefined;
+  comment: string | undefined;
+  _id: string | undefined;
   updatedAt: Date | undefined;
   score: number;
 };
 
 const ReplyScore = ({ comment, _id, updatedAt, score }: Props) => {
-  const [ updateReply ] = useUpdateReplyMutation();
+  const [updateReply] = useUpdateReplyMutation();
 
   const incrementScore = async () => {
     try {
